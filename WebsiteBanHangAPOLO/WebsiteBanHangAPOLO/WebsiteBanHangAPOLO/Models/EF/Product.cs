@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WebsiteBanHangAPOLO.Models.EF
 {
@@ -24,6 +25,7 @@ namespace WebsiteBanHangAPOLO.Models.EF
         public int ProductCategoryId { get; set; }
         [StringLength(4000)]
         public string Description { get; set; }
+        [AllowHtml]
         public string Detail { get; set; }
 
         public decimal Price { get; set; }

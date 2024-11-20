@@ -29,6 +29,7 @@ namespace WebsiteBanHangAPOLO.Models.EF
         public string SeoDecripttion { get; set; }
         [StringLength(150, ErrorMessage = "Không Được Vượt 150 Ký Tự")]
         public string SeoKeywords { get; set; }
+        public bool IsActive { get; set; }
         public int Position { get; set; }
         public ICollection<New> News { get; set; }
         public ICollection<Post> Posts { get; set; }

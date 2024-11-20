@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace WebsiteBanHangAPOLO.Models.EF
 {
@@ -19,9 +20,11 @@ namespace WebsiteBanHangAPOLO.Models.EF
         public string Alias { get; set; }
         public string CategoryId { get; set; }
         public string Descripttion { get; set; }
+        [AllowHtml]
         public string Detail { get; set; }
         public string SeoTitle { get; set; }
         public string SeoDecription { get; set; }
+        public bool IsActive { get; set; }
         public string SeoKeywords { get; set; }
         public string Image { get; set; }
     }

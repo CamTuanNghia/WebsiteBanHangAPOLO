@@ -219,3 +219,11 @@ C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteB
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.UpdateData.resources
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.csproj.AssemblyReference.cache
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.UpdateCategory1.resources
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\CKFinder.dll
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\CKFinder.pdb
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.UpdateActive.resources
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.ChangeModels.resources
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\PagedList.dll
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\PagedList.Mvc.dll
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\PagedList.xml
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\PagedList.Mvc.xml

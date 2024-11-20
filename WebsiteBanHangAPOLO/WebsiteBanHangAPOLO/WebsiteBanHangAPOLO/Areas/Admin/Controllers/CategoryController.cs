@@ -12,10 +12,22 @@ namespace WebsiteBanHangAPOLO.Areas.Admin.Controllers
     {
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: Admin/Category
-        public ActionResult Index()
+        public ActionResult Index(string SearchString)
         {
-            var items = db.Categories.ToList();
-            return View(items);
+            List<Category> lstCategory;
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                string sr = Models.Common.Filter.ChuyenCoDauThanhKhongDau(SearchString).ToLower();
+                lstCategory = db.Categories.AsEnumerable().Where(x => Models.Common.Filter.ChuyenCoDauThanhKhongDau(x.Title).ToLower().Contains(sr)).ToList();
+            }
+            else
+            {
+                lstCategory = db.Categories.ToList();
+            }
+
+            return View(lstCategory);
+
         }
         public ActionResult Add()
         {
@@ -29,16 +41,13 @@ namespace WebsiteBanHangAPOLO.Areas.Admin.Controllers
             {
                 model.CreatedDate = DateTime.Now;
                 model.ModifiedDate = DateTime.Now;
+                model.IsActive = true;
                 model.Alias = WebsiteBanHangAPOLO.Models.Common.Filter.FilterChar(model.Title);
                 db.Categories.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(model);
-        }
-        public ActionResult Search()
-        {
-            return View();
         }
         public ActionResult Edit(int id)
         {
@@ -68,6 +77,18 @@ namespace WebsiteBanHangAPOLO.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             return View(model);
+        }
+        [HttpPost]
+        public JsonResult ToggleActive(int id, bool isActive)
+        {
+            var item = db.Categories.Find(id);
+            if (item != null)
+            {
+                item.IsActive = isActive; 
+                db.SaveChanges();
+                return Json(new { success = true });
+            }
+            return Json(new { success = false });
         }
         public ActionResult Delete(int id)
         {

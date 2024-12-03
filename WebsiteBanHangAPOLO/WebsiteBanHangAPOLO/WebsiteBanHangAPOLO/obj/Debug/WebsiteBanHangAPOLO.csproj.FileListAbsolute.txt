@@ -217,7 +217,6 @@ C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteB
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.csproj.GenerateResource.cache
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.UpdateCategory.resources
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.UpdateData.resources
-C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.csproj.AssemblyReference.cache
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.UpdateCategory1.resources
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\CKFinder.dll
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\CKFinder.pdb
@@ -227,3 +226,7 @@ C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteB
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\PagedList.Mvc.dll
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\PagedList.xml
 C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\bin\PagedList.Mvc.xml
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.UpdateProduct.resources
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.UpdateDataBase.resources
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.Migrations.UpdatePro.resources
+C:\Code BTL\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\WebsiteBanHangAPOLO\obj\Debug\WebsiteBanHangAPOLO.csproj.AssemblyReference.cache

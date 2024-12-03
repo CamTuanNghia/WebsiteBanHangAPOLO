@@ -9,7 +9,7 @@ using System.Web.Mvc;
 namespace WebsiteBanHangAPOLO.Models.EF
 {
     [Table("tb_Product")]
-    public class Product
+    public class Product:CommonAbstract
     {
         public Product()
         {
@@ -18,7 +18,7 @@ namespace WebsiteBanHangAPOLO.Models.EF
         }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ID { get; set; }
         [Required]
         [StringLength(150)]
         public string Title { get; set; }
@@ -27,11 +27,13 @@ namespace WebsiteBanHangAPOLO.Models.EF
         public string Description { get; set; }
         [AllowHtml]
         public string Detail { get; set; }
-
+        public string Alias { get; set; }
+        public string ProductCode { get; set; }
         public decimal Price { get; set; }
         [StringLength(250)]
         public string Image { get; set; }
-        public decimal PriceSell { get; set; }
+        public decimal? PriceSell { get; set; }
+        public decimal OriginalPrice { get; set; }
         public int Quantity { get; set; }
         public bool IsHome { get; set; }
         public bool IsSale { get; set; }

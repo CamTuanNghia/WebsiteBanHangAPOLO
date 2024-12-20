@@ -55,15 +55,26 @@
                             @Html.ValidationSummary(true)
                             @Html.HiddenFor(x => x.ID)
                             <!-- your steps content here -->
-                            <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Tiêu đề:</label>
-                                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Nhập tên danh mục sản phẩm" })
-                                    @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
-                                </div>
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tiêu đề:</label>
+                                @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Nhập tên danh mục sản phẩm" })
+                                @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Mô tả:</label>
                                 @Html.TextAreaFor(x => x.Descripttion, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">Tải ảnh lên</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        @Html.TextBoxFor(x => x.Icon, new { @id = "txtImage", @class = "from-control" })
+                                    </div>
+                                    <div class="input-group-append">
+                                        <input type="button" value="Tải ảnh" onclick="BrowseServer('txtImage')" />
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Alias:</label>

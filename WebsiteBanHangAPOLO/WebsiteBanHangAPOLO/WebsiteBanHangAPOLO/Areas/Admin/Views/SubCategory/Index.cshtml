@@ -1,0 +1,153 @@
+﻿@model IEnumerable<WebsiteBanHangAPOLO.Models.EF.SubCategory>
+@{
+    ViewBag.Title = "Danh mục con";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/subcategory" class="nav-link">Danh mục con</a>
+        </li>
+    </ul>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản lý danh mục con</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Danh mục con</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Danh sách danh mục con</h3>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="input-group">
+                        @using (Html.BeginForm("Index", "SubCategory", FormMethod.Get))
+                        {
+                            <div class="input-group-append">
+                                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control form-control-lg", placeholder = "Tìm kiếm danh mục con" })
+                                <button type="submit" class="btn btn-lg btn-default">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="card-tools">
+                    <a href="/admin/subcategory/add" class="btn btn-primary">Thêm mới</a>
+                </div>
+            </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Trạng thái</th>
+                        <th>STT</th>
+                        <th>Tên danh mục</th>
+                        <th>Danh mục cha</th>
+                        <th>Thứ tự</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        var i = 1;
+                        foreach (var item in Model)
+                        {
+                            <tr id="trow_@item.ID">
+                                <td>
+                                    <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                        <input type="checkbox" class="custom-control-input"
+                                               id="customSwitch_@item.ID"
+                                               @(item.IsActive ? "checked" : "")
+                                               onchange="toggleActive(@item.ID, this.checked)" />
+                                        <label class="custom-control-label" for="customSwitch_@item.ID"></label>
+                                    </div>
+                                </td>
+                                <td>@i</td>
+                                <td>@item.Title</td>
+                                <td>@item.Category.Title</td> <!-- Hiển thị tên danh mục cha -->
+                                <td>@item.Position</td>
+                                <td>
+                                    <a href="/admin/subcategory/edit/@item.ID" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a href="#" data-id="@item.ID" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                                </td>
+                            </tr>
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6">Không có bản ghi nào</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
+<!-- /.content -->
+<!-- /.content-wrapper -->
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn Có Muốn Xóa Bản Ghi Này ?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/admin/subcategory/delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        function toggleActive(id, isActive) {
+            fetch(`/admin/subcategory/ToggleActive/${id}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": $('input[name="__RequestVerificationToken"]').val()
+                },
+                body: JSON.stringify({ isActive: isActive })
+            });
+        }
+    </script>
+}

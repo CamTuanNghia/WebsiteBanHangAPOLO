@@ -1,0 +1,126 @@
+﻿@model WebsiteBanHangAPOLO.Models.EF.ProductSubCategory
+@{
+    ViewBag.Title = "Thêm mới danh mục sản phẩm con";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section naviheader{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="/admin/productsubcategory" class="nav-link">Danh mục sản phẩm con</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Thêm mới</a>
+        </li>
+    </ul>
+}
+
+<!-- Content Header -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Thêm mới danh mục sản phẩm con</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Danh mục sản phẩm con</li>
+                    <li class="breadcrumb-item active">Thêm mới</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-default">
+            <div class="card-header">
+                <h3 class="card-title">Thông tin danh mục sản phẩm con</h3>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Add", "ProductSubCategory", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "Vui lòng kiểm tra thông tin nhập vào!", new { @class = "text-danger" })
+
+                    <!-- Tên danh mục -->
+                    <div class="form-group">
+                        <label for="Title">Tên danh mục con:</label>
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Nhập tên danh mục con" })
+                        @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Danh mục cha -->
+                    <div class="form-group">
+                        <label for="ParentCategoryID">Danh mục cha:</label>
+                        @Html.DropDownList("ParentCategoryID", ViewBag.ProductCategories as SelectList, "Chọn danh mục cha", new { @class = "form-control" })
+                        @Html.ValidationMessage("ParentCategoryID", null, new { @class = "text-danger" })
+                    </div>
+
+                    <!-- Mô tả -->
+                    <div class="form-group">
+                        <label for="Description">Mô tả:</label>
+                        @Html.TextAreaFor(x => x.Descripttion, new { @class = "form-control", @rows = 4, @placeholder = "Nhập mô tả danh mục" })
+                    </div>
+
+                    <!-- Ảnh đại diện -->
+                    <div class="form-group">
+                        <label for="Icon">Tải ảnh lên:</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                @Html.TextBoxFor(x => x.Icon, new { @id = "txtImage", @class = "form-control" })
+                            </div>
+                            <div class="input-group-append">
+                                <button type="button" onclick="BrowseServer('txtImage')" class="btn btn-secondary">Chọn ảnh</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEO -->
+
+                        <div class="form-group">
+                            <label for="SeoTitle">Seo Title:</label>
+                            @Html.TextBoxFor(x => x.SeoTitle, new { @class = "form-control", @placeholder = "Nhập tiêu đề SEO" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="SeoDescription">Seo Description:</label>
+                            @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control", @rows = 4, @placeholder = "Nhập mô tả SEO" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="SeoKeywords">Seo Keywords:</label>
+                            @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control", @rows = 4, @placeholder = "Nhập từ khóa SEO" })
+                        </div>
+
+                    <!-- Nút hành động -->
+                    <div class="form-group">
+                        <a href="/admin/productsubcategory" class="btn btn-danger">Quay lại</a>
+                        <button type="submit" class="btn btn-primary">Thêm mới</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function BrowseServer(field) {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                document.getElementById(field).value = fileUrl;
+            };
+            finder.popup();
+        }
+    </script>
+}
